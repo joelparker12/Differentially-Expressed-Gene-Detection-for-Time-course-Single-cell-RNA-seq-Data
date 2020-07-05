@@ -1,0 +1,22 @@
+% Modified by Chong Gu 6/2/89
+% ====================== NUMINSEC.STY ============================ % 
+% SIAM Style option to get numbering of equations, figures, tables within sections
+
+\@addtoreset{equation}{section}   % Makes \section reset 'equation' counter.
+\renewcommand\theequation{\thesection.\arabic{equation}}
+%\newcommand\refeq[1]{{\rm (\ref{e:#1})}}
+
+%\@addtoreset{theorem}{section}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{ex}{Example}[section]
+\newtheorem{defi}{Definition}[section]
+\newtheorem{algo}{Algorithm}[section]
+
+\@addtoreset{figure}{section}
+\renewcommand\thefigure{\thesection.\@arabic\c@figure}
+
+\@addtoreset{table}{section}
+\renewcommand\thetable{\thesection.\@arabic\c@table}
+

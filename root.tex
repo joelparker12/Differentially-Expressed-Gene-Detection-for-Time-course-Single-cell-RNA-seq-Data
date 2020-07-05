@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym,amsmath,amsfonts, righttag,natbib,fullpage,numinsec,setspace,algorithmicx, algorithm, algpseudocode}
+\usepackage{psfig,graphicx,subfig, float, wrapfig}
+\usepackage{booktabs,multirow,mathrsfs, tabularx} 
+\usepackage{titling}
+\usepackage{hyperref}
+\usepackage{authblk}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+
+\linespread{1.5}
+
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mcl}{\mathcal}
+\newcommand{\sbf}{\boldsymbol}
+\newcommand{\sla}{{\scriptscriptstyle\langle}}
+\newcommand{\sra}{{\scriptscriptstyle\rangle}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\R}{\mathbb R}
+
+\setlength{\droptitle}{-8em} 
+
+\title{\bf Differentially Expressed Gene Detection for Time-course Single-cell RNA-seq Data}
+\author[1]{Joel Alexander Parker}
+\author[1]{Xiaoxiao Sun\footnote{To whom correspondence should be addressed}}
+\affil[1]{Department of Epidemiology and Biostatistics, University of Arizona}
+
+
+\date{}
+\renewcommand{\topfraction}{.95}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Keywords: 
+\end{abstract}
+
+\section*{Project Summary}
+Accurate detection of differentially expressed (DE) genes in time-course single cell RNA-seq (scRNA-seq) data is crucial to understand the dynamics of regulatory networks in a high resolution. However, such detection requires the alignment of single cells at different time points or stages. Recently, RNA velocity has been used to construct pseudotime trajectories. Compared to existing methods for pseudotime prediction, methods based on RNA velocity exploit the time derivative of the gene expression state and provide a biologically meaningful prediction. In the paper, we develop a novel method to detect DE genes for the time-course scRNA-seq data. The method includes two stages: 1) construct pseudotime trajectories using RNA velocity to align scRNA-seq data; 2) implement a semi-parametric zero-inflated negative binomial mixed effects model to detect DE genes in the aligned scRNA-seq data. 
+
+%\section*{Background}
+
+%\section*{Results}
+
+%\section*{Discussion}
+
+%\section*{Methods}
+\section*{Methods}
+We did not use any statistical methods to predetermine sample size. Velocity analysis was completed using R 3.6.1. We looked at velocity and psudotime from three different publicly available data sets. We first looked at the single cell expression and nuclear expression data from the MERFISH library(1). We followed the process for determining RNA velocity as found in the RNA velocity tutorial and tips website(2). From this library 10,050 genes were used for the downstream analysis (1). We only looked at the batch 1 which contained 10,050 genes and 645 cells. Our count matrix was then normalized using the MUDAN library. Principal Component Analysis was then ran to find the frst 100 principal components. The first 30 Principal components were used for the TSNE plot. Five distinct populations of cells were determined by using K-nearest neighbor.and louvian clustering. We used velocity analysis to determine psudeutime. In the RNA velocity tutorial, RNA velocity was determined by distinguishing between nuclear and cytoplasmic mRNAs, rather than the ratio of spliced and unspliced genes(2). Cytoplasmic genes expression was determined by the difference between cell gene expression and nuclear gene expression. The biomaRt library was then used to limit our data set to only protein coding genes.        
+
+\section*{Competing interests}
+The authors declare no competing interests.
+
+%\section*{Author contributions}
+
+
+%\section*{Additional information}
+%Supplementary Information is available for this paper.
+
+
+%\newpage
+
+%\bibliographystyle{chicago}
+%\bibliography{single}
+
+\section*{References}
+1. Spatial transcriptome profiling by MERFISH reveals subcellular RNA compartmentalization and cell cycle-dependent gene expression
+Chenglong Xia, Jean Fan, George Emanuel, Junjie Hao, Xiaowei Zhuang
+Proceedings of the National Academy of Sciences Sep 2019, 116 (39) 19490-19499; DOI: 10.1073/pnas.1912459116 \\
+2. RNA Velocity Analysis (In Situ) - Tutorial and Tips. JEFworks, 14 Jan. 2020, \\ jef.works/blog/2020/01/14/rna\_velocity\_analysis\_tutorial\_tips/.
+\end{document}
